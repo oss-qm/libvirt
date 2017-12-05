@@ -3,6 +3,7 @@
 
 profile virt-aa-helper /usr/{lib,lib64}/libvirt/virt-aa-helper {
   #include <abstractions/base>
+  #include <abstractions/nameservice>
 
   # needed for searching directories
   capability dac_override,
