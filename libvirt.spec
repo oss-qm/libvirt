@@ -1570,10 +1570,6 @@ exit 0
 %{_datadir}/augeas/lenses/tests/test_libvirt_lockd.aug
 %endif
 
-%{_datadir}/polkit-1/actions/org.libvirt.unix.policy
-%{_datadir}/polkit-1/actions/org.libvirt.api.policy
-%{_datadir}/polkit-1/rules.d/50-libvirt.rules
-
 %dir %attr(0700, root, root) %{_localstatedir}/log/libvirt/
 
 %attr(0755, root, root) %{_libexecdir}/libvirt_iohelper

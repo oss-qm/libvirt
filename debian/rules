@@ -103,7 +103,7 @@ DEB_CONFIGURE_EXTRA_ARGS :=      \
 	--with-sasl              \
 	--with-yajl              \
 	--with-ssh2		 \
-	--with-polkit		 \
+	--without-polkit	\
 	$(WITH_UDEV)		 \
 	--with-storage-fs        \
 	--with-storage-dir       \
@@ -188,8 +188,6 @@ override_dh_install-arch:
 	cp src/locking/virtlockd.sysconf \
 	    debian/libvirt-daemon-system.virtlockd.default
 	# Add our backward compat polkit rule
-	cp debian/polkit/60-libvirt.pkla \
-	    debian/libvirt-daemon-system/var/lib/polkit-1/localauthority/10-vendor.d/
 ifneq (,$(findstring $(DEB_HOST_ARCH_OS), linux))
 	# Linux supports more nice things:
 	dh_install -p libvirt-daemon-system usr/lib/systemd/system lib/systemd/
