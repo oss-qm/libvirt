@@ -1,3 +1,10 @@
+libvirt (5.6.0-3~dng1) unstable; urgency=medium
+
+  * removed broken polkit dependency
+  * removed systemd cruft
+
+ -- Enrico Weigelt <info@metux.net>  Mon, 27 Jan 2020 21:10:51 +0100
+
 libvirt (5.6.0-3) unstable; urgency=medium
 
   * Team upload.
