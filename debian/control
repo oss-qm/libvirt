@@ -50,6 +50,7 @@ Build-Depends:
  librados-dev [linux-any],
 # for --with-wireshark-dissector
  libwireshark-dev (>= 1.11.3),
+ wireshark-dev,
  libwiretap-dev,
 # for lxc fuse support
  libfuse-dev [linux-any],
