@@ -39,8 +39,8 @@ ifneq (,$(findstring $(DEB_HOST_ARCH_OS), linux))
   WITH_OPENVZ         = --with-openvz
   WITH_NETCF          = --with-netcf
   WITH_SANLOCK        = --with-sanlock
-  WITH_INIT_SCRIPT    =	--with-init-script=systemd
-  WITH_SYSTEMD        = --with-systemd-daemon
+  WITH_INIT_SCRIPT    =	--with-init-script=check
+  WITH_SYSTEMD        = --without-systemd-daemon
   WITH_FIREWALLD      = --with-firewalld
   WITH_AUDIT          = --with-audit
   WITH_SELINUX        = --with-selinux --with-secdriver-selinux --with-selinux-mount=/sys/fs/selinux
@@ -190,7 +190,6 @@ override_dh_install-arch:
 	# Add our backward compat polkit rule
 ifneq (,$(findstring $(DEB_HOST_ARCH_OS), linux))
 	# Linux supports more nice things:
-	dh_install -p libvirt-daemon-system usr/lib/systemd/system lib/systemd/
 	dh_install -p libvirt-daemon-system usr/lib/libvirt/virt-aa-helper
 	dh_install -p libvirt-daemon-system etc/apparmor.d
 	dh_apparmor -p libvirt-daemon-system --profile-name=usr.lib.libvirt.virt-aa-helper
@@ -231,10 +230,6 @@ override_dh_installinit:
 	dh_installinit -p libvirt-daemon-system --name=virtlogd --no-stop-on-upgrade
 	dh_installinit -p libvirt-daemon-system --name=libvirtd --restart-after-upgrade -- defaults 28 72
 	dh_installinit -p libvirt-daemon-system --name=libvirt-guests --no-stop-on-upgrade -- defaults 29 71
-
-override_dh_installsystemd:
-	dh_installsystemd -p libvirt-daemon-system --restart-after-upgrade libvirtd.service
-	dh_installsystemd -p libvirt-daemon-system --no-stop-on-upgrade $(LIBVIRT_SYSTEM_SERVICES)
 
 override_dh_installdocs:
 	dh_installdocs -plibvirt-doc --doc-main-package libvirt-doc
