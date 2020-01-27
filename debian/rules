@@ -31,7 +31,7 @@ ifneq (,$(findstring $(DEB_HOST_ARCH_OS), linux))
   WITH_STORAGE_DISK   =	--with-storage-disk
   WITH_STORAGE_RBD    = --with-storage-rbd
   WITH_STORAGE_ZFS    = --with-storage-zfs
-  WITH_STORAGE_GLUSTER = --with-storage-gluster
+  WITH_STORAGE_GLUSTER = --without-storage-gluster
   WITH_UDEV           = --with-udev
   WITH_CAPNG          = --with-capng
   WITH_MACVTAP        = --with-macvtap
