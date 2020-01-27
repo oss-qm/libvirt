@@ -232,8 +232,6 @@ override_dh_installinit:
 	dh_installinit -p libvirt-daemon-system --name=libvirt-guests --no-stop-on-upgrade -- defaults 29 71
 
 override_dh_installdocs:
-	dh_installdocs -plibvirt-doc --doc-main-package libvirt-doc
-	dh_installdocs -Nlibvirt-doc
 	# Remove binaries and object files examples
 	[ ! -d $(EXAMPLES_DIR) ] || find $(EXAMPLES_DIR) -name "*.o" -type f -delete -o -name .libs -type d -exec rm -rf {} \;
 	rm -f $(EXAMPLES_DIR)domain-events/events-c/event-test \
@@ -242,6 +240,7 @@ override_dh_installdocs:
 	      $(EXAMPLES_DIR)hellolibvirt/hellolibvirt \
 	      $(EXAMPLES_DIR)apparmor/* \
 	      $(NULL)
+	dh_installdocs
 
 override_dh_auto_clean:
 	[ ! -f Makefile ] || dh_auto_clean
