@@ -220,7 +220,6 @@ test_libraries = libshunload.la \
 if WITH_REMOTE
 test_programs += \
 	virnetmessagetest \
-	virnetsockettest \
 	virnetdaemontest \
 	virnetserverclienttest \
 	virnettlscontexttest \
