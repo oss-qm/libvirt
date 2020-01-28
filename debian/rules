@@ -220,9 +220,9 @@ endif
 	done
 
 	# Don't ship any la files
-	rm debian/libvirt-wireshark/usr/lib/*/wireshark/plugins/*/*/*.la
+	rm -Rf debian/libvirt-wireshark/usr/lib/*/wireshark/plugins/*/*/*.la
 	# Don't ship any files that are managed by the user only
-	rm debian/libvirt-daemon-system/etc/apparmor.d/local/*
+	rm -Rf debian/libvirt-daemon-system/etc/apparmor.d/local/*
 	# executable-not-elf-or-script
 	chmod 644 debian/libvirt-daemon/usr/share/bash-completion/completions/vsh
 
